@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Loopback Controller</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-microphone"></i> Audio Loopback Controller</h1>
+            <p>Connect your devices and control audio in real-time</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Device Selection Section -->
+            <section class="device-section">
+                <h2><i class="fas fa-cog"></i> Device Configuration</h2>
+                
+                <div class="device-grid">
+                    <!-- Input Device Selection -->
+                    <div class="device-card">
+                        <h3><i class="fas fa-microphone"></i> Input Device</h3>
+                        <select id="inputDevice" class="device-select">
+                            <option value="">Select input device...</option>
+                        </select>
+                        <div class="device-info">
+                            <span id="inputDeviceInfo">No device selected</span>
+                        </div>
+                    </div>
+
+                    <!-- Output Device Selection -->
+                    <div class="device-card">
+                        <h3><i class="fas fa-volume-up"></i> Output Device</h3>
+                        <select id="outputDevice" class="device-select" disabled>
+                            <option value="">System Default (Browser Limited)</option>
+                        </select>
+                        <div class="device-info">
+                            <span id="outputDeviceInfo">Audio plays through system default output</span>
+                        </div>
+                        <div class="device-note">
+                            <small><i class="fas fa-info-circle"></i> Use system settings to change output device</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="refreshDevices" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i> Refresh Devices
+                    </button>
+                    <button id="testMicrophone" class="btn btn-secondary">
+                        <i class="fas fa-microphone"></i> Test Microphone
+                    </button>
+                    <button id="diagnoseDevices" class="btn btn-secondary">
+                        <i class="fas fa-stethoscope"></i> Diagnose Devices
+                    </button>
+                </div>
+            </section>
+
+            <!-- Audio Controls Section -->
+            <section class="controls-section">
+                <h2><i class="fas fa-sliders-h"></i> Audio Controls</h2>
+                
+                <div class="controls-grid">
+                    <!-- Main Control Buttons -->
+                    <div class="control-group">
+                        <button id="startStopBtn" class="btn btn-primary btn-large">
+                            <i class="fas fa-play"></i> Start Loopback
+                        </button>
+                        <button id="muteBtn" class="btn btn-warning btn-large" disabled>
+                            <i class="fas fa-microphone-slash"></i> Mute
+                        </button>
+                    </div>
+
+                    <!-- Volume Controls -->
+                    <div class="volume-controls">
+                        <div class="volume-group">
+                            <label for="inputVolume">Input Volume</label>
+                            <div class="volume-slider-container">
+                                <input type="range" id="inputVolume" min="0" max="100" value="100" class="volume-slider">
+                                <span id="inputVolumeValue">100%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="volume-group">
+                            <label for="outputVolume">Output Volume</label>
+                            <div class="volume-slider-container">
+                                <input type="range" id="outputVolume" min="0" max="100" value="100" class="volume-slider">
+                                <span id="outputVolumeValue">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Status Section -->
+            <section class="status-section">
+                <h2><i class="fas fa-info-circle"></i> Status</h2>
+                
+                <div class="status-grid">
+                    <div class="status-card">
+                        <div class="status-indicator" id="connectionStatus">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="status-text">
+                            <h4>Connection</h4>
+                            <p id="connectionText">Disconnected</p>
+                        </div>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-indicator" id="audioStatus">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="status-text">
+                            <h4>Audio</h4>
+                            <p id="audioText">Stopped</p>
+                        </div>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-indicator" id="muteStatus">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="status-text">
+                            <h4>Microphone</h4>
+                            <p id="muteText">Unmuted</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audio Visualization -->
+            <section class="visualization-section">
+                <h2><i class="fas fa-chart-line"></i> Audio Levels</h2>
+                <div class="visualization-container">
+                    <canvas id="audioVisualizer" width="800" height="200"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <!-- Notifications -->
+        <div id="notifications" class="notifications"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
