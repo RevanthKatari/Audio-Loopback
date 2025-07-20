@@ -4,7 +4,7 @@ Allow: /index.html
 Allow: /styles.css
 Allow: /script.js
 
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://audio-loopback.vercel.app/sitemap.xml
 
 # Disallow any potential temporary or backup files
 Disallow: *.tmp
