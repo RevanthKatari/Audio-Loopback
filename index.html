@@ -3,7 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Loopback Controller</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Audio Loopback Controller - Real-Time Audio Monitoring & Baby Monitor Tool</title>
+    <meta name="description" content="Professional audio loopback controller for real-time audio monitoring, baby hearing assistance, security surveillance, and remote audio streaming. Free web-based tool with advanced audio controls.">
+    <meta name="keywords" content="audio loopback, baby monitor, audio monitoring, hearing aid, real-time audio, microphone controller, audio surveillance, sound amplifier, hearing assistance">
+    <meta name="author" content="Audio Loopback Controller">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Audio Loopback Controller - Real-Time Audio Monitoring Tool">
+    <meta property="og:description" content="Free web-based audio loopback controller for baby monitoring, hearing assistance, and real-time audio surveillance. Works on all devices.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com">
+    <meta property="og:image" content="https://your-domain.com/audio-controller-preview.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Audio Loopback Controller - Real-Time Audio Monitoring">
+    <meta name="twitter:description" content="Professional audio monitoring tool for baby care, hearing assistance, and security surveillance. Free and easy to use.">
+    <meta name="twitter:image" content="https://your-domain.com/audio-controller-preview.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://your-domain.com">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Audio Loopback Controller",
+      "description": "Professional audio loopback controller for real-time audio monitoring, baby hearing assistance, and security surveillance",
+      "url": "https://your-domain.com",
+      "applicationCategory": "AudioApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Real-time audio monitoring",
+        "Baby monitor functionality",
+        "Hearing assistance",
+        "Audio surveillance",
+        "Device selection",
+        "Volume control",
+        "Audio visualization"
+      ]
+    }
+    </script>
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,8 +62,35 @@
     <div class="container">
         <header class="header">
             <h1><i class="fas fa-microphone"></i> Audio Loopback Controller</h1>
-            <p>Connect your devices and control audio in real-time</p>
+            <p>Professional real-time audio monitoring for baby care, hearing assistance, and security surveillance</p>
         </header>
+
+        <!-- Use Cases Section -->
+        <section class="use-cases-section">
+            <h2><i class="fas fa-lightbulb"></i> Popular Use Cases</h2>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <i class="fas fa-baby"></i>
+                    <h3>Baby Monitor</h3>
+                    <p>Monitor your baby's room remotely with real-time audio streaming. Perfect for nap time surveillance and night monitoring.</p>
+                </div>
+                <div class="use-case-card">
+                    <i class="fas fa-ear-listen"></i>
+                    <h3>Hearing Assistance</h3>
+                    <p>Amplify and enhance audio for hearing-impaired individuals. Customize volume and frequency settings for better clarity.</p>
+                </div>
+                <div class="use-case-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security Monitoring</h3>
+                    <p>Monitor your home, office, or workspace with discrete audio surveillance. Real-time alerts for unusual sounds.</p>
+                </div>
+                <div class="use-case-card">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h3>Audio Testing</h3>
+                    <p>Test microphones, speakers, and audio equipment. Professional-grade audio analysis and device diagnostics.</p>
+                </div>
+            </div>
+        </section>
 
         <main class="main-content">
             <!-- Device Selection Section -->
@@ -51,12 +128,6 @@
                     <button id="refreshDevices" class="btn btn-secondary">
                         <i class="fas fa-sync-alt"></i> Refresh Devices
                     </button>
-                    <button id="testMicrophone" class="btn btn-secondary">
-                        <i class="fas fa-microphone"></i> Test Microphone
-                    </button>
-                    <button id="diagnoseDevices" class="btn btn-secondary">
-                        <i class="fas fa-stethoscope"></i> Diagnose Devices
-                    </button>
                 </div>
             </section>
 
@@ -65,31 +136,40 @@
                 <h2><i class="fas fa-sliders-h"></i> Audio Controls</h2>
                 
                 <div class="controls-grid">
-                    <!-- Main Control Buttons -->
+                    <!-- Main Controls -->
                     <div class="control-group">
-                        <button id="startStopBtn" class="btn btn-primary btn-large">
-                            <i class="fas fa-play"></i> Start Loopback
-                        </button>
-                        <button id="muteBtn" class="btn btn-warning btn-large" disabled>
-                            <i class="fas fa-microphone-slash"></i> Mute
-                        </button>
+                        <h3>Loopback Control</h3>
+                        <div class="button-group">
+                            <button id="startBtn" class="btn btn-primary">
+                                <i class="fas fa-play"></i> Start Loopback
+                            </button>
+                            <button id="stopBtn" class="btn btn-danger" disabled>
+                                <i class="fas fa-stop"></i> Stop Loopback
+                            </button>
+                            <button id="muteBtn" class="btn btn-warning">
+                                <i class="fas fa-microphone"></i> Mute
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Volume Controls -->
-                    <div class="volume-controls">
-                        <div class="volume-group">
-                            <label for="inputVolume">Input Volume</label>
-                            <div class="volume-slider-container">
-                                <input type="range" id="inputVolume" min="0" max="100" value="100" class="volume-slider">
-                                <span id="inputVolumeValue">100%</span>
+                    <div class="control-group">
+                        <h3>Volume Control</h3>
+                        <div class="volume-controls">
+                            <div class="volume-control">
+                                <label for="inputVolume">
+                                    <i class="fas fa-microphone"></i> Input Volume
+                                </label>
+                                <input type="range" id="inputVolume" min="0" max="100" value="50" class="volume-slider">
+                                <span id="inputVolumeValue" class="volume-value">50%</span>
                             </div>
-                        </div>
-                        
-                        <div class="volume-group">
-                            <label for="outputVolume">Output Volume</label>
-                            <div class="volume-slider-container">
-                                <input type="range" id="outputVolume" min="0" max="100" value="100" class="volume-slider">
-                                <span id="outputVolumeValue">100%</span>
+                            
+                            <div class="volume-control">
+                                <label for="outputVolume">
+                                    <i class="fas fa-volume-up"></i> Output Volume
+                                </label>
+                                <input type="range" id="outputVolume" min="0" max="100" value="50" class="volume-slider">
+                                <span id="outputVolumeValue" class="volume-value">50%</span>
                             </div>
                         </div>
                     </div>
@@ -142,10 +222,220 @@
             </section>
         </main>
 
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2><i class="fas fa-star"></i> Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Real-Time Monitoring</h3>
+                    <p>Instant audio streaming with zero latency for critical monitoring situations.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Cross-Device Compatible</h3>
+                    <p>Works on desktop, tablet, and mobile devices. No app installation required.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>Privacy Focused</h3>
+                    <p>All audio processing happens locally in your browser. No data sent to servers.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Advanced Controls</h3>
+                    <p>Professional-grade audio controls with volume adjustment and device selection.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Audio Visualization</h3>
+                    <p>Real-time frequency spectrum analysis and audio level monitoring.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-download"></i>
+                    <h3>Free & Open Source</h3>
+                    <p>Completely free to use with no hidden costs or subscription fees.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I use this as a baby monitor?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>To use as a baby monitor: 1) Place your device with microphone in the baby's room, 2) Connect to the audio controller on another device, 3) Start loopback to hear real-time audio from the baby's room. Adjust volume as needed for comfortable monitoring.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can this help with hearing difficulties?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! This tool can amplify ambient sounds and conversations. Use headphones or earbuds as output devices and adjust the input volume to enhance sounds around you. It's particularly useful for temporary hearing assistance in meetings or conversations.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is my audio data secure and private?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! All audio processing happens locally in your browser. No audio data is transmitted to external servers or stored anywhere. Your conversations and monitoring sessions remain completely private.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What devices are compatible?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>This tool works on any device with a modern web browser (Chrome, Firefox, Safari, Edge). Compatible with desktop computers, laptops, tablets, and smartphones. Bluetooth microphones and wireless earbuds are supported.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I use this for security monitoring?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, this tool is excellent for discrete audio surveillance of your property. Monitor your home, office, or workspace remotely. The audio visualization helps identify unusual sounds or activities.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Why am I not hearing any audio output?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Check these steps: 1) Ensure microphone permissions are granted, 2) Verify input device is selected and working, 3) Check system volume and browser audio settings, 4) Try refreshing devices if recently connected, 5) Ensure the microphone is not muted.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Does this work offline?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Once loaded, the audio controller works completely offline. All processing is done locally in your browser, so you don't need an internet connection for audio monitoring functionality.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I reduce audio feedback or echo?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>To prevent feedback: 1) Use headphones instead of speakers, 2) Lower the output volume, 3) Increase distance between microphone and speakers, 4) Use the mute button when not actively monitoring, 5) Consider using directional microphones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instructions Section -->
+        <section class="instructions-section">
+            <h2><i class="fas fa-book"></i> How to Use</h2>
+            <div class="instructions-grid">
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <h3>Grant Permissions</h3>
+                    <p>Allow microphone access when prompted by your browser. This is required for audio input.</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <h3>Select Devices</h3>
+                    <p>Choose your input microphone and configure audio output settings for your monitoring needs.</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <h3>Adjust Settings</h3>
+                    <p>Set appropriate volume levels for both input and output to ensure comfortable monitoring.</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <h3>Start Monitoring</h3>
+                    <p>Click "Start Loopback" to begin real-time audio monitoring and surveillance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy and Legal Section -->
+        <section class="privacy-section">
+            <h2><i class="fas fa-shield-alt"></i> Privacy & Legal Information</h2>
+            <div class="privacy-content">
+                <div class="privacy-card">
+                    <h3><i class="fas fa-user-shield"></i> Privacy Protection</h3>
+                    <ul>
+                        <li>All audio processing occurs locally in your browser</li>
+                        <li>No audio data is transmitted to external servers</li>
+                        <li>No recordings are stored or saved anywhere</li>
+                        <li>Your monitoring sessions remain completely private</li>
+                        <li>No personal information is collected or tracked</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-card">
+                    <h3><i class="fas fa-balance-scale"></i> Legal Compliance</h3>
+                    <ul>
+                        <li>Ensure compliance with local privacy laws</li>
+                        <li>Obtain consent before monitoring others</li>
+                        <li>Use responsibly for legitimate purposes only</li>
+                        <li>Respect others' privacy and rights</li>
+                        <li>Follow workplace and residential monitoring regulations</li>
+                    </ul>
+                </div>
+                
+                <div class="privacy-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important Disclaimers</h3>
+                    <ul>
+                        <li>This tool is for legitimate monitoring purposes only</li>
+                        <li>Users are responsible for complying with applicable laws</li>
+                        <li>Not intended for unauthorized surveillance</li>
+                        <li>Medical hearing assistance should supplement, not replace, professional care</li>
+                        <li>Audio quality depends on device capabilities and environment</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <!-- Notifications -->
         <div id="notifications" class="notifications"></div>
     </div>
 
     <script src="script.js"></script>
+    
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('.fas');
+                
+                faqItem.classList.toggle('active');
+                
+                if (faqItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    answer.style.maxHeight = '0';
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
