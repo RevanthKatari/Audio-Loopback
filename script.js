@@ -25,7 +25,8 @@ class AudioLoopbackController {
         this.refreshDevicesBtn = document.getElementById('refreshDevices');
         
         // Control elements
-        this.startStopBtn = document.getElementById('startStopBtn');
+        this.startBtn = document.getElementById('startBtn');
+        this.stopBtn = document.getElementById('stopBtn');
         this.muteBtn = document.getElementById('muteBtn');
         this.inputVolumeSlider = document.getElementById('inputVolume');
         this.outputVolumeSlider = document.getElementById('outputVolume');
@@ -68,7 +69,8 @@ class AudioLoopbackController {
         }
         
         // Control events
-        this.startStopBtn.addEventListener('click', () => this.toggleAudio());
+        this.startBtn.addEventListener('click', () => this.startAudio());
+        this.stopBtn.addEventListener('click', () => this.stopAudio());
         this.muteBtn.addEventListener('click', () => this.toggleMute());
         this.inputVolumeSlider.addEventListener('input', (e) => this.onInputVolumeChange(e));
         this.outputVolumeSlider.addEventListener('input', (e) => this.onOutputVolumeChange(e));
@@ -223,13 +225,7 @@ class AudioLoopbackController {
         // This is more of a UI demonstration
     }
 
-    async toggleAudio() {
-        if (this.isRunning) {
-            this.stopAudio();
-        } else {
-            await this.startAudio();
-        }
-    }
+
 
     async startAudio() {
         console.log('Starting audio with device:', this.selectedInputDevice);
@@ -286,10 +282,8 @@ class AudioLoopbackController {
             this.updateAudioStatus(true);
             this.startVisualization();
             
-            this.startStopBtn.innerHTML = '<i class="fas fa-stop"></i> Stop Loopback';
-            this.startStopBtn.classList.remove('btn-primary');
-            this.startStopBtn.classList.add('btn-warning');
-            
+            this.startBtn.disabled = true;
+            this.stopBtn.disabled = false;
             this.muteBtn.disabled = false;
             
             this.showNotification('Audio loopback started', 'success');
@@ -323,10 +317,8 @@ class AudioLoopbackController {
         this.updateAudioStatus(false);
         this.stopVisualization();
         
-        this.startStopBtn.innerHTML = '<i class="fas fa-play"></i> Start Loopback';
-        this.startStopBtn.classList.remove('btn-warning');
-        this.startStopBtn.classList.add('btn-primary');
-        
+        this.startBtn.disabled = false;
+        this.stopBtn.disabled = true;
         this.muteBtn.disabled = true;
         
         this.showNotification('Audio loopback stopped', 'info');
