@@ -3,10 +3,27 @@ Allow: /
 Allow: /index.html
 Allow: /styles.css
 Allow: /script.js
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /ads.txt
+Allow: /google049897c31f0638a1.html
 
-Sitemap: https://audio-loopback.vercel.app/sitemap.xml
+# Allow search engines to crawl all content
+Crawl-delay: 1
 
 # Disallow any potential temporary or backup files
 Disallow: *.tmp
 Disallow: *.bak
 Disallow: *~
+Disallow: /.git/
+Disallow: /.cert/
+Disallow: /TROUBLESHOOTING.md
+Disallow: /README.md
+Disallow: /server.py
+
+# Sitemap location
+Sitemap: https://audio-loopback.vercel.app/sitemap.xml
+
+# Additional information for search engines
+# This is a free audio loopback controller for baby monitoring, 
+# hearing assistance, and security surveillance
